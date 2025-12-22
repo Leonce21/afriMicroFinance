@@ -1,0 +1,154 @@
+<div class="bg-stone-50 min-h-screen pb-20">
+  <section class="bg-[#228B22] text-white py-24 text-center relative overflow-hidden">
+     <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+    <h1 class="text-5xl md:text-6xl font-bold font-serif mb-6 relative z-10">Our Services</h1>
+    <p class="text-green-100 max-w-2xl mx-auto text-xl relative z-10">Comprehensive financial solutions designed for your growth.</p>
+  </section>
+
+  <section class="container mx-auto px-4 -mt-16 relative z-20">
+    <div class="bg-white rounded-3xl shadow-2xl overflow-hidden min-h-[700px]">
+      <!-- Tabs -->
+      <div class="flex flex-col md:flex-row border-b border-gray-100">
+        <button 
+          (click)="setTab('loans')"
+          class="flex-1 py-8 px-6 text-center transition-all duration-300 group relative overflow-hidden"
+          [class.bg-orange-50]="activeTab() === 'loans'"
+          [class.text-[#FF6B00]]="activeTab() === 'loans'"
+          [class.text-gray-500]="activeTab() !== 'loans'">
+          <div class="relative z-10 flex flex-col items-center gap-3">
+             <svg class="w-8 h-8 transition-transform group-hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"/><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h11c.6 0 1.1.2 1.4.6L21 21"/><path d="M16 13a2 2 0 1 0 0-4h-2c-.6 0-1.1.2-1.4.6L14 11"/><path d="m13 7 1.6-1.4c.3-.4.8-.6 1.4-.6h4c.6 0 1.1.2 1.4.6L21 7"/><path d="M7 1h4"/></svg>
+             <span class="font-bold text-xl">Micro Loans</span>
+          </div>
+          @if (activeTab() === 'loans') {
+            <div class="absolute bottom-0 left-0 w-full h-1.5 bg-[#FF6B00]"></div>
+          }
+        </button>
+        <button 
+          (click)="setTab('savings')"
+          class="flex-1 py-8 px-6 text-center transition-all duration-300 group relative overflow-hidden"
+          [class.bg-green-50]="activeTab() === 'savings'"
+          [class.text-[#228B22]]="activeTab() === 'savings'"
+          [class.text-gray-500]="activeTab() !== 'savings'">
+           <div class="relative z-10 flex flex-col items-center gap-3">
+             <svg class="w-8 h-8 transition-transform group-hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5c-1.5 0-2.8.6-3.8 1.6l-1.3 1.3a5.8 5.8 0 0 0-2.1-1.7l-1.4-.4a7.2 7.2 0 0 0-2 0l-1.4.4a5.8 5.8 0 0 0-2.1 1.7l-1.3-1.3C2.8 5.6 1.5 5 0 5v14c1.5 0 2.8-.6 3.8-1.6l1.3-1.3a5.8 5.8 0 0 0 2.1 1.7l1.4.4a7.2 7.2 0 0 0 2 0l1.4-.4a5.8 5.8 0 0 0 2.1-1.7l1.3 1.3c1 1 2.3 1.6 3.8 1.6V5zm-8 7h2"/><path d="M13 17a2 2 0 1 0 0-4h-2"/></svg>
+             <span class="font-bold text-xl">Savings Plans</span>
+           </div>
+           @if (activeTab() === 'savings') {
+            <div class="absolute bottom-0 left-0 w-full h-1.5 bg-[#228B22]"></div>
+          }
+        </button>
+        <button 
+          (click)="setTab('edu')"
+          class="flex-1 py-8 px-6 text-center transition-all duration-300 group relative overflow-hidden"
+           [class.bg-blue-50]="activeTab() === 'edu'"
+          [class.text-blue-600]="activeTab() === 'edu'"
+          [class.text-gray-500]="activeTab() !== 'edu'">
+           <div class="relative z-10 flex flex-col items-center gap-3">
+             <svg class="w-8 h-8 transition-transform group-hover:scale-110" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+             <span class="font-bold text-xl">Financial Education</span>
+           </div>
+            @if (activeTab() === 'edu') {
+            <div class="absolute bottom-0 left-0 w-full h-1.5 bg-blue-600"></div>
+          }
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div class="p-10 md:p-16">
+        @if (activeTab() === 'loans') {
+          <div class="animate-fade-in space-y-8">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+              <div class="lg:w-1/2">
+                <span class="text-[#FF6B00] font-bold tracking-wider text-sm uppercase mb-2 block">Quick & Easy</span>
+                <h2 class="text-4xl font-bold text-gray-900 mb-6 font-serif">Grow Your Business Capital</h2>
+                <p class="text-gray-600 mb-8 leading-relaxed text-lg">
+                  Whether you need stock for your shop or seeds for your farm, our microloans are designed with flexible repayment terms that match your cash flow cycle. No collateral required for loans under $500.
+                </p>
+                <ul class="space-y-4 mb-10">
+                  <li class="flex items-center gap-4 text-gray-700 text-lg">
+                    <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-[#FF6B00]"><svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    Interest rates starting at 1.5% per month
+                  </li>
+                  <li class="flex items-center gap-4 text-gray-700 text-lg">
+                    <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-[#FF6B00]"><svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    Decisions within 24 hours
+                  </li>
+                  <li class="flex items-center gap-4 text-gray-700 text-lg">
+                     <div class="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-[#FF6B00]"><svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                    Mobile money disbursement
+                  </li>
+                </ul>
+                <a href="/apply" class="inline-flex items-center gap-3 px-8 py-4 bg-[#FF6B00] text-white rounded-xl font-bold hover:bg-[#e65a00] transition-all shadow-xl hover:shadow-orange-200 transform hover:-translate-y-1">
+                   Apply for Loan
+                   <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+              <div class="lg:w-1/2">
+                <img src="https://picsum.photos/id/1055/600/400" alt="Loan discussion" class="rounded-3xl shadow-2xl w-full transform rotate-2 hover:rotate-0 transition-transform duration-500">
+              </div>
+            </div>
+          </div>
+        }
+
+        @if (activeTab() === 'savings') {
+          <div class="animate-fade-in space-y-8">
+             <div class="flex flex-col lg:flex-row gap-16 items-center">
+              <div class="lg:w-1/2 order-2 lg:order-1">
+                 <img src="https://picsum.photos/id/1082/600/400" alt="Saving jar" class="rounded-3xl shadow-2xl w-full transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+              </div>
+              <div class="lg:w-1/2 order-1 lg:order-2">
+                <span class="text-[#228B22] font-bold tracking-wider text-sm uppercase mb-2 block">Safe & Secure</span>
+                <h2 class="text-4xl font-bold text-gray-900 mb-6 font-serif">Secure Your Future</h2>
+                <p class="text-gray-600 mb-8 leading-relaxed text-lg">
+                  Join our "AfriSave" accounts or create a Group Savings (Chama) account. We offer competitive interest rates and zero monthly fees to help you build a safety net.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="p-6 border border-green-100 bg-green-50 rounded-2xl hover:bg-[#228B22] hover:text-white transition-colors duration-300 group">
+                    <h4 class="font-bold text-[#228B22] text-xl mb-2 group-hover:text-white flex items-center gap-2">
+                       <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                       Personal
+                    </h4>
+                    <p class="text-gray-600 group-hover:text-green-100">5% p.a. interest</p>
+                  </div>
+                  <div class="p-6 border border-green-100 bg-green-50 rounded-2xl hover:bg-[#228B22] hover:text-white transition-colors duration-300 group">
+                    <h4 class="font-bold text-[#228B22] text-xl mb-2 group-hover:text-white flex items-center gap-2">
+                       <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                       Group (Chama)
+                    </h4>
+                    <p class="text-gray-600 group-hover:text-green-100">7% p.a. interest</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+
+        @if (activeTab() === 'edu') {
+          <div class="animate-fade-in space-y-12">
+            <div class="text-center max-w-3xl mx-auto">
+              <span class="text-blue-600 font-bold tracking-wider text-sm uppercase mb-2 block">Empowerment</span>
+              <h2 class="text-4xl font-bold text-gray-900 mb-6 font-serif">Knowledge is Wealth</h2>
+              <p class="text-gray-600 text-lg">Free workshops and online resources covering budgeting, debt management, and investment basics.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div class="bg-blue-50 p-8 rounded-3xl flex items-start gap-6 border border-blue-100 hover:shadow-lg transition-shadow">
+                <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-2xl flex-shrink-0 shadow-lg shadow-blue-200">1</div>
+                <div>
+                  <h4 class="font-bold text-2xl mb-2 text-gray-900">Budgeting 101</h4>
+                  <p class="text-gray-600 text-lg">Learn to track income and expenses effectively to maximize your savings.</p>
+                </div>
+              </div>
+              <div class="bg-blue-50 p-8 rounded-3xl flex items-start gap-6 border border-blue-100 hover:shadow-lg transition-shadow">
+                <div class="w-14 h-14 bg-blue-600 text-white rounded-2xl flex items-center justify-center font-bold text-2xl flex-shrink-0 shadow-lg shadow-blue-200">2</div>
+                <div>
+                  <h4 class="font-bold text-2xl mb-2 text-gray-900">Investment Basics</h4>
+                  <p class="text-gray-600 text-lg">How to grow your money safely over time using diverse portfolios.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+</div>
